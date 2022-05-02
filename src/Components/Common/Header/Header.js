@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
-import HeroSection from "./HeroSection";
 const Header = () => {
   return (
     <>
@@ -16,21 +16,20 @@ const Header = () => {
           >
             <Nav variant="tabs" defaultActiveKey="/">
               <Nav.Item>
-                <Nav.Link href="/">Home</Nav.Link>
+                <NavLink className="nav-link" to="/">Home</NavLink>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="shop">Shop</Nav.Link>
+                <NavLink eventKey="shop" className="nav-link" to={'/shop'}>Shop</NavLink>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="inventory">Inventory</Nav.Link>
+                <NavLink className="nav-link" to="/inventory" eventKey="inventory">Inventory</NavLink>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="order">My Order</Nav.Link>
+                <NavLink className="nav-link" to="/order" eventKey="order">My Order</NavLink>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
       </Navbar>
-      <HeroSection />
     </>
   );
 };
