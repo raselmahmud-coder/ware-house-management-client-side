@@ -1,16 +1,20 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import './Header.css';
+import "./Header.css";
+import HeroSection from "./HeroSection";
 const Header = () => {
   return (
     <div>
-      <Navbar expand="lg" style={{ paddingTop: "0px" }}>
+      <Navbar expand="lg" style={{ paddingTop: "0px", paddingBottom: "0px" }}>
         <Container style={{ backgroundColor: "#AA55FF", borderRadius: "5px" }}>
           <Navbar.Brand href="/">
             <span className="logo">King Furniture</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="justify-content-center"
+          >
             <Nav variant="tabs" defaultActiveKey="/">
               <Nav.Item>
                 <Nav.Link href="/">Home</Nav.Link>
@@ -28,6 +32,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <HeroSection />
     </div>
   );
 };

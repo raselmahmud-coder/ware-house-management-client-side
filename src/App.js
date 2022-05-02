@@ -1,10 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Header from "./Components/Header/Header";
+import Footer from "./Components/Common/Footer/Footer";
+import Header from "./Components/Common/Header/Header";
 function App() {
   return (
     <>
       <Header />
+      <Footer/>
     </>
   );
 }
