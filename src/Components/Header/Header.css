@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+.logo {
+  font-family: "Lobster", cursive;
+  color: #fff;
+  padding: 0;
+}
+.nav-tabs {
+  border-bottom: none;
+}
