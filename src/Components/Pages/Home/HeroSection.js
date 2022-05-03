@@ -16,7 +16,7 @@ const HeroSection = () => {
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={500}>
+        <Carousel.Item interval={1000}>
           <img
             className="d-block w-100"
             src={`https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821__340.jpg`}

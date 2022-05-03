@@ -19,13 +19,13 @@ const Header = () => {
                 <NavLink className="nav-link" to="/">Home</NavLink>
               </Nav.Item>
               <Nav.Item>
-                <NavLink eventKey="shop" className="nav-link" to={'/shop'}>Shop</NavLink>
+                <NavLink className="nav-link" to="/inventory" eventkey="inventory">Inventory</NavLink>
               </Nav.Item>
               <Nav.Item>
-                <NavLink className="nav-link" to="/inventory" eventKey="inventory">Inventory</NavLink>
+                <NavLink eventkey="shop" className="nav-link" to={'/blog'}>Blog</NavLink>
               </Nav.Item>
               <Nav.Item>
-                <NavLink className="nav-link" to="/order" eventKey="order">My Order</NavLink>
+                <NavLink className="nav-link" to="/order" eventkey="order">My Order</NavLink>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
