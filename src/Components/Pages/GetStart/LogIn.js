@@ -1,46 +1,45 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PopUpLogIn from "./PopUpLogIn/PopUpLogIn";
+import React, { useState } from "react";
+import Registration from "./Registration";
 
-const GetStart = () => {
+const LogIn = () => {
+  const [registration, setRegistration] = useState(false);
   return (
     <>
-      <PopUpLogIn/>
-      <section className="w-50 mx-auto my-5">
+      {registration ? <Registration/>
+        :
+      <section className="w-50 mx-auto">
         <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
           <li class="nav-item rounded m-2" role="presentation">
-            <Link
+            <span
               class="nav-link active"
               id="tab-login"
               data-mdb-toggle="pill"
-              to="/getStart"
               role="tab"
               aria-controls="pills-login"
               aria-selected="true"
             >
               Login
-            </Link>
+            </span>
           </li>
           <li
             class="nav-item rounded m-2"
             role="presentation"
-            style={{ backgroundColor: "#562eff" }}
           >
-            <Link
-              class="nav-link text-white"
+            <span
+              class="btn nav-link"
               id="tab-register"
               data-mdb-toggle="pill"
-              to="/registration"
+              onClick={()=>setRegistration(true)}
               role="tab"
               aria-controls="pills-register"
               aria-selected="false"
             >
               Register
-            </Link>
+            </span>
           </li>
         </ul>
         {/* upper tab login sign up */}
-        <div class="tab-content">
+          <div class="tab-content">
           <div
             class="tab-pane fade show active"
             id="pills-login"
@@ -107,12 +106,6 @@ const GetStart = () => {
               <button type="submit" class="btn btn-primary btn-block mb-4">
                 Sign in
               </button>
-
-              <div class="text-center">
-                <p>
-                  Not a member? <a href="#!">Register</a>
-                </p>
-              </div>
             </form>
           </div>
           <div
@@ -205,9 +198,11 @@ const GetStart = () => {
             </form>
           </div>
         </div>
-      </section>
+      </section> 
+    
+    }
     </>
   );
 };
 
-export default GetStart;
+export default LogIn;
