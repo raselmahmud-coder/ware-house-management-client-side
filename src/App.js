@@ -8,6 +8,8 @@ import Blog from "./Components/Pages/Blog/Blog";
 import Inventory from "./Components/Pages/Inventory/Inventory"
 import MyOrder from "./Components/Pages/MyOrder/MyOrder";
 import NotFound from "./Components/Common/NotFound/NotFound";
+import GetStart from "./Components/Pages/GetStart/LogIn";
+import Registration from "./Components/Pages/GetStart/Registration";
 function App() {
   return (
     <div className="container">
@@ -17,6 +19,8 @@ function App() {
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/inventory" element={<Inventory />}></Route>
         <Route path="/order" element={<MyOrder />}></Route>
+        <Route path="/getStart" element={<GetStart />}></Route>
+        <Route path="/registration" element={<Registration />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
