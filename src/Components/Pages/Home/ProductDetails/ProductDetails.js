@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 
 const ProductDetails = () => {
@@ -10,19 +11,42 @@ const ProductDetails = () => {
       .get(`http://localhost:4000/inventory/${id}`)
       .then((res) => setSingleProduct(res.data));
   }, [id, singleProduct]);
+
   const handleDelivered = () => {
     const updateQuantity = singleProduct?.quantity - 1;
-    const sentData = {updateQuantity};
     // send update data to the server
     fetch(`http://localhost:4000/inventory/${id}`, {
       method: "put",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(sentData),
+      body: JSON.stringify({ updateQuantity }),
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+  };
+
+  const handleStock = (e) => {
+    e.preventDefault();
+    const number = e.target.number.value;
+    if (number > 0) {
+      const updateQuantity = singleProduct?.quantity + parseInt(number);
+      // send update data to the server
+      fetch(`http://localhost:4000/inventory/${id}`, {
+        method: "put",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ updateQuantity }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    } else {
+      toast.error("put a valid integer number", {
+        id: "putValid",
+        duration: 5000,
+      });
+    }
   };
   return (
     <>
@@ -104,7 +128,22 @@ const ProductDetails = () => {
           </div>
         </div>
         <div className="col-md-4">
-          <h2>for form</h2>
+          <h2 className="text-center">Restock the items</h2>
+          <form onSubmit={handleStock}>
+            <div className="form-outline mb-4">
+              <input
+                type="number"
+                id="number"
+                className="form-control"
+                placeholder="Type number"
+                required
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary btn-block mb-4">
+              Send
+            </button>
+          </form>
         </div>
       </div>
     </>

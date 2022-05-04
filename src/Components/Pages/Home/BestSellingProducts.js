@@ -60,6 +60,7 @@ const BestSellingProducts = () => {
             )}
           </div>
         </div>
+      <button className="btn btn-primary mt-2 d-block mx-auto">Manage Inventories</button>
       </section>
     </>
   );
