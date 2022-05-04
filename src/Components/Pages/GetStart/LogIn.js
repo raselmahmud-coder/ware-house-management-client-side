@@ -1,20 +1,39 @@
 import React, { useState } from "react";
-
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import auth from "../../../firebase_init";
+import Spinner from "../../Common/Spinner/Spinner";
 import Registration from "./Registration";
 import SocialLogIn from "./SocialLogIn";
 
-const LogIn = ({ handlingGoogle }) => {
+const LogIn = () => {
   const [registration, setRegistration] = useState(false);
-  /*  const handleGoogleSignIn = () => {
-    setGoogleSignIn(googleSignIn + 1);
-  }; */
-
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    signInWithEmailAndPassword(email, password);
+    e.target.reset();
+  };
+  if (error) {
+    toast.error(`error occur! ${error}`, {
+      id: "logIn_error",
+    });
+  }
+  if (user) {
+    toast.success("Logged In", {
+      duration: 5000,
+      id:"user_logged"
+    });
+  }
   return (
     <>
       {registration ? (
         <Registration />
       ) : (
-        <section className="w-50 mx-auto mt-4">
+        <section className="mx-auto mt-4" style={{ width: "35%" }}>
           <ul
             className="nav nav-pills nav-justified mb-3"
             id="ex1"
@@ -53,24 +72,24 @@ const LogIn = ({ handlingGoogle }) => {
               role="tabpanel"
               aria-labelledby="tab-login"
             >
-              <form>
+              <form onSubmit={handleLogIn}>
                 <SocialLogIn />
                 <p className="text-center">or:</p>
                 <div className="form-outline mb-4">
-                  <input type="email" id="loginName" className="form-control" />
-                  <label className="form-label" htmlFor="loginName">
-                    Email or username
-                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="form-control"
+                    placeholder="Email or username"
+                  />
                 </div>
                 <div className="form-outline mb-4">
                   <input
                     type="password"
-                    id="loginPassword"
+                    id="password"
                     className="form-control"
+                    placeholder="Password"
                   />
-                  <label className="form-label" htmlFor="loginPassword">
-                    Password
-                  </label>
                 </div>
                 <div className="row mb-4">
                   <div className="col-md-6 d-flex justify-content-center">
@@ -82,8 +101,7 @@ const LogIn = ({ handlingGoogle }) => {
                         id="loginCheck"
                       />
                       <label className="form-check-label" htmlFor="loginCheck">
-                        {" "}
-                        Remember me{" "}
+                        Remember me
                       </label>
                     </div>
                   </div>
@@ -96,126 +114,7 @@ const LogIn = ({ handlingGoogle }) => {
                   type="submit"
                   className="btn btn-primary btn-block mb-4"
                 >
-                  Sign in
-                </button>
-              </form>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="pills-register"
-              role="tabpanel"
-              aria-labelledby="tab-register"
-            >
-              <form>
-                <div className="text-center mb-3">
-                  <p>Sign up with:</p>
-                  <button
-                    type="button"
-                    className="btn btn-link btn-floating mx-1"
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </button>
-
-                  <button
-                    type="button"
-                    className="btn btn-link btn-floating mx-1"
-                  >
-                    <i className="fab fa-google"></i>
-                  </button>
-
-                  <button
-                    type="button"
-                    className="btn btn-link btn-floating mx-1"
-                  >
-                    <i className="fab fa-twitter"></i>
-                  </button>
-
-                  <button
-                    type="button"
-                    className="btn btn-link btn-floating mx-1"
-                  >
-                    <i className="fab fa-github"></i>
-                  </button>
-                </div>
-
-                <p className="text-center">or:</p>
-
-                <div className="form-outline mb-4">
-                  <input
-                    type="text"
-                    id="registerName"
-                    className="form-control"
-                  />
-                  <label className="form-label" htmlFor="registerName">
-                    Name
-                  </label>
-                </div>
-
-                <div className="form-outline mb-4">
-                  <input
-                    type="text"
-                    id="registerUsername"
-                    className="form-control"
-                  />
-                  <label className="form-label" htmlFor="registerUsername">
-                    Username
-                  </label>
-                </div>
-
-                <div className="form-outline mb-4">
-                  <input
-                    type="email"
-                    id="registerEmail"
-                    className="form-control"
-                  />
-                  <label className="form-label" htmlFor="registerEmail">
-                    Email
-                  </label>
-                </div>
-
-                <div className="form-outline mb-4">
-                  <input
-                    type="password"
-                    id="registerPassword"
-                    className="form-control"
-                  />
-                  <label className="form-label" htmlFor="registerPassword">
-                    Password
-                  </label>
-                </div>
-
-                <div className="form-outline mb-4">
-                  <input
-                    type="password"
-                    id="registerRepeatPassword"
-                    className="form-control"
-                  />
-                  <label
-                    className="form-label"
-                    htmlFor="registerRepeatPassword"
-                  >
-                    Repeat password
-                  </label>
-                </div>
-
-                <div className="form-check d-flex justify-content-center mb-4">
-                  <input
-                    className="form-check-input me-2"
-                    type="checkbox"
-                    value=""
-                    id="registerCheck"
-                    aria-describedby="registerCheckHelpText"
-                  />
-                  <label className="form-check-label" htmlFor="registerCheck">
-                    I have read and agree to the terms
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-block mb-3"
-                >
-                  Sign in
+                  {loading ? <Spinner/> : "Log in"}
                 </button>
               </form>
             </div>

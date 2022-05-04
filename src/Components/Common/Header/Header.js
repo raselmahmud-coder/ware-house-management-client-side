@@ -2,8 +2,8 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase_init';
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase_init";
 import { signOut } from "firebase/auth";
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -11,7 +11,7 @@ const Header = () => {
     if (user) {
       signOut(auth);
     }
-  }
+  };
   return (
     <>
       <Navbar
@@ -50,14 +50,20 @@ const Header = () => {
                 Blog
               </NavLink>
             </Nav.Item>
-            <Nav.Item>
-              <NavLink className="nav-link" to="/order" eventkey="order">
-                My Order
-              </NavLink>
-            </Nav.Item>
+            {user && (
+              <Nav.Item>
+                <NavLink className="nav-link" to="/order" eventkey="order">
+                  My Order
+                </NavLink>
+              </Nav.Item>
+            )}
             <Nav.Item>
               <NavLink to="/getStart" className="nav-link" eventkey="getStart">
-                {user ? <span onClick={handleLogOut}> Log Out </span> : "Get Start"}
+                {user ? (
+                  <span onClick={handleLogOut}> Log Out </span>
+                ) : (
+                  "Get Start"
+                )}
               </NavLink>
             </Nav.Item>
           </Nav>

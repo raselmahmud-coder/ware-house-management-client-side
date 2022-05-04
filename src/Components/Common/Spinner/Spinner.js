@@ -2,24 +2,14 @@ import React from "react";
 
 const Spinner = () => {
   return (
-    <div className="w-50 d-block mx-auto">
-      <button className="btn btn-primary" type="button" disabled>
-        <span
-          className="spinner-border spinner-border-sm"
-          role="status"
-          aria-hidden="true"
-        ></span>
-        <span className="sr-only">Loading...</span>
-      </button>
-      <button className="btn btn-primary" type="button" disabled>
-        <span
-          className="spinner-border spinner-border-sm"
-          role="status"
-          aria-hidden="true"
-        ></span>
-        Processing...
-      </button>
-    </div>
+    <>
+      <span
+        className="spinner-border spinner-border-sm text-white bg-primary"
+        role="status"
+        aria-hidden="true"
+      ></span>
+      Processing...
+    </>
   );
 };
 
