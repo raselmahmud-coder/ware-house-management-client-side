@@ -31,29 +31,29 @@ const CustomersReview = () => {
               <Carousel.Caption className="mt-5">
                 <h4 className="">Maria Developer</h4>
                 <p className="">
-                  <i class="fas fa-quote-left pe-2"></i>
+                  <i className="fas fa-quote-left pe-2"></i>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
                   aliquam amet animi blanditiis consequatur debitis dicta
                   distinctio, enim error eum iste libero modi nam natus
                   perferendis possimus quasi sint sit tempora voluptatem. Est,
                   exercitationem id ipsa ipsum laboriosam perferendis.
-                  <i class="fas fa-quote-right ps-2"></i>
+                  <i className="fas fa-quote-right ps-2"></i>
                 </p>
-                <ul class="list-unstyled d-flex justify-content-center mb-0">
+                <ul className="list-unstyled d-flex justify-content-center mb-0">
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                 </ul>
               </Carousel.Caption>
@@ -72,26 +72,26 @@ const CustomersReview = () => {
               <Carousel.Caption className="mt-5">
                 <h4 className="">Micheal - Web Developer</h4>
                 <p className="">
-                  <i class="fas fa-quote-left pe-2"></i>
+                  <i className="fas fa-quote-left pe-2"></i>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
                   aliquam amet animi blanditiis consequatur debitis dicta
                   distinctio, enim error eum iste libero modi nam natus
                   perferendis possimus quasi sint sit tempora voluptatem. Est,
                   exercitationem id ipsa ipsum laboriosam perferendis.
-                  <i class="fas fa-quote-right ps-2"></i>
+                  <i className="fas fa-quote-right ps-2"></i>
                 </p>
-                <ul class="list-unstyled d-flex justify-content-center mb-0">
+                <ul className="list-unstyled d-flex justify-content-center mb-0">
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
                     <FontAwesomeIcon icon={faStar} className="text-warning" />
@@ -113,29 +113,29 @@ const CustomersReview = () => {
               <Carousel.Caption className="mt-5">
                 <h4 className="">Maria Smantha - Web Developer</h4>
                 <p className="">
-                  <i class="fas fa-quote-left pe-2"></i>
+                  <i className="fas fa-quote-left pe-2"></i>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
                   aliquam amet animi blanditiis consequatur debitis dicta
                   distinctio, enim error eum iste libero modi nam natus
                   perferendis possimus quasi sint sit tempora voluptatem. Est,
                   exercitationem id ipsa ipsum laboriosam perferendis.
-                  <i class="fas fa-quote-right ps-2"></i>
+                  <i className="fas fa-quote-right ps-2"></i>
                 </p>
-                <ul class="list-unstyled d-flex justify-content-center mb-0">
+                <ul className="list-unstyled d-flex justify-content-center mb-0">
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star fa-sm text-warning"></i>
+                    <i className="fas fa-star fa-sm text-warning"></i>
                   </li>
                   <li>
-                    <i class="fas fa-star-half-alt fa-sm text-warning"></i>
+                    <i className="fas fa-star-half-alt fa-sm text-warning"></i>
                   </li>
                 </ul>
               </Carousel.Caption>

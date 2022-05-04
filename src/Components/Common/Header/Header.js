@@ -2,11 +2,16 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
-import GetStartPopUp from "../../Pages/GetStart/PopUpLogIn/GetStartPopUp";
-import { useLocation } from "react-router-dom";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase_init';
+import { signOut } from "firebase/auth";
 const Header = () => {
-  const [modalShow, setModalShow] = React.useState(false);
-  const location = useLocation();
+  const [user] = useAuthState(auth);
+  const handleLogOut = () => {
+    if (user) {
+      signOut(auth);
+    }
+  }
   return (
     <>
       <Navbar
@@ -51,22 +56,9 @@ const Header = () => {
               </NavLink>
             </Nav.Item>
             <Nav.Item>
-              <NavLink
-                to={"void"}
-                className={modalShow ? "active nav-link" : "nav-link"}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setModalShow(true);
-                }}
-                eventkey="getStart"
-                style={{ cursor: "pointer" }}
-              >
-                Get Start
+              <NavLink to="/getStart" className="nav-link" eventkey="getStart">
+                {user ? <span onClick={handleLogOut}> Log Out </span> : "Get Start"}
               </NavLink>
-              <GetStartPopUp
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-              />
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
