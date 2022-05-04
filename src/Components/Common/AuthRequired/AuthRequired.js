@@ -1,19 +1,28 @@
-import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import React from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Spinner from "../Spinner/Spinner";
+import toast from "react-hot-toast";
+import auth from "../../../firebase_init";
+
 const AuthRequired = ({ children }) => {
-    const [user, loading, error] = useAuthState();
-    const location = useLocation
-    if (!user) {
-        // Redirect them to the /login page, but save the current location they were
-        // trying to go to when they were redirected. This allows us to send them
-        // along to that page after they login, which is a nicer user experience
-        // than dropping them off on the home page.
-        return <Navigate to="/login" state={{ from: location }} replace />;
-      }
-    
-      return children
-    
+  const [user, loading, error] = useAuthState(auth);
+  const location = useLocation();
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner />;
+      </div>
+    );
+  }
+  if (error) {
+    toast.error(`error occurred ${error}`);
+  }
+  if (!user) {
+    return <Navigate to="/getStart" state={{ from: location }} replace />;
+  }
+
+  return children;
 };
 
 export default AuthRequired;

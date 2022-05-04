@@ -1,14 +1,11 @@
 import React from "react";
 
+import { Facebook } from "react-spinners-css";
+//using bit
 const Spinner = () => {
   return (
     <>
-      <span
-        className="spinner-border spinner-border-sm text-white bg-primary"
-        role="status"
-        aria-hidden="true"
-      ></span>
-      Processing...
+      <Facebook />
     </>
   );
 };

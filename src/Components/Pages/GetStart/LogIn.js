@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase_init";
 import Spinner from "../../Common/Spinner/Spinner";
 import Registration from "./Registration";
@@ -10,6 +11,14 @@ const LogIn = () => {
   const [registration, setRegistration] = useState(false);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [from, navigate, user]);
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -20,12 +29,6 @@ const LogIn = () => {
   if (error) {
     toast.error(`error occur! ${error}`, {
       id: "logIn_error",
-    });
-  }
-  if (user) {
-    toast.success("Logged In", {
-      duration: 5000,
-      id:"user_logged"
     });
   }
   return (
@@ -114,7 +117,7 @@ const LogIn = () => {
                   type="submit"
                   className="btn btn-primary btn-block mb-4"
                 >
-                  {loading ? <Spinner/> : "Log in"}
+                  {loading ? <Spinner /> : "Log in"}
                 </button>
               </form>
             </div>

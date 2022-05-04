@@ -12,24 +12,32 @@ import Registration from "./Components/Pages/GetStart/Registration";
 import React from "react";
 import LogIn from "./Components/Pages/GetStart/LogIn";
 import { Toaster } from "react-hot-toast";
+import ProductDetails from "./Components/Pages/Home/ProductDetails/ProductDetails";
+import AuthRequired from "./Components/Common/AuthRequired/AuthRequired";
 
 function App() {
-
-
   return (
     <div className="container">
       <Header />
-     
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/blog" element={<Blog />}></Route>
-          <Route path="/inventory" element={<Inventory />}></Route>
-          <Route path="/order" element={<MyOrder />}></Route>
-          <Route path="/getStart" element={<LogIn />}></Route>
-          <Route path="/registration" element={<Registration />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-     
+
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/blog" element={<Blog />}></Route>
+        <Route path="/inventory" element={<Inventory />}></Route>
+        <Route path="/order" element={<MyOrder />}></Route>
+        <Route path="/getStart" element={<LogIn />}></Route>
+        <Route path="/registration" element={<Registration />}></Route>
+        <Route
+          path="/productDetails/:id"
+          element={
+            <AuthRequired>
+              <ProductDetails />
+            </AuthRequired>
+          }
+        ></Route>
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
+
       <Footer />
       <Toaster />
     </div>

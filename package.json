@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/joshk.jotils.get-random-color": "^2.1.1",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
@@ -21,6 +22,7 @@
     "react-hot-toast": "^2.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-spinners-css": "^2.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
