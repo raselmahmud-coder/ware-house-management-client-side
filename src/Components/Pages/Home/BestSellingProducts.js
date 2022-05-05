@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import useInventories from "../../../Hooks/useInventories";
 import Spinner from "../../Common/Spinner/Spinner";
 
 const BestSellingProducts = () => {
-  const [bestProducts, setBestProducts] = useState([]);
-  useEffect(() => {
-    fetch(`https://king-furniture.herokuapp.com/inventories`)
-      .then((res) => res.json())
-      .then((data) => setBestProducts(data));
-  }, []);
+  const [bestProducts] = useInventories()
+
 
   return (
     <>
@@ -24,7 +21,7 @@ const BestSellingProducts = () => {
           }
           <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-3">
             {  (
-              bestProducts?.map((pd) => {
+              bestProducts.slice(0,3).map((pd) => {
                 return (
                   <div className="col mb-5" key={pd._id}>
                     <div className="card h-100">
@@ -60,7 +57,10 @@ const BestSellingProducts = () => {
             )}
           </div>
         </div>
-      <button className="btn btn-primary mt-2 d-block mx-auto">Manage Inventories</button>
+        <button className="btn btn-primary mt-2 d-block mx-auto"><Link className="text-white" to={'/manageInventory'}>
+          Manage Inventories
+        </Link>
+        </button>
       </section>
     </>
   );

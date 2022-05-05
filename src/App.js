@@ -14,6 +14,7 @@ import LogIn from "./Components/Pages/GetStart/LogIn";
 import { Toaster } from "react-hot-toast";
 import ProductDetails from "./Components/Pages/Home/ProductDetails/ProductDetails";
 import AuthRequired from "./Components/Common/AuthRequired/AuthRequired";
+import ManageInventory from "./Components/Pages/ManageInventory/ManageInventory";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             </AuthRequired>
           }
         ></Route>
+        <Route path="/manageInventory" element={<ManageInventory />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
