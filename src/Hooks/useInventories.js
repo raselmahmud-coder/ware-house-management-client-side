@@ -7,7 +7,7 @@ const useInventories = () => {
     fetch(`https://king-furniture.herokuapp.com/inventories`)
       .then((res) => res.json())
       .then((data) => setInventories(data));
-  }, []);
+  }, [inventories]);
   return [inventories];
 };
 

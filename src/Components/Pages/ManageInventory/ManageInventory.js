@@ -1,9 +1,16 @@
+import axios from "axios";
 import React from "react";
 import useInventories from "../../../Hooks/useInventories";
 import Spinner from "../../Common/Spinner/Spinner";
 
 const ManageInventory = () => {
-  const [inventories] = useInventories();
+    const [inventories] = useInventories();
+    const handleDeleteItem = id => {
+        
+        axios.delete(`http://localhost:4000/manageInventory/${id}`)
+        .then(res=> console.log(res))
+        
+    }
   return (
     <>
       <section className="my-3">
@@ -39,7 +46,7 @@ const ManageInventory = () => {
                         <button className="btn btn-outline-dark me-1">
                           Add Item
                         </button>
-                        <button className="btn btn-outline-danger ms-1">
+                        <button className="btn btn-outline-danger ms-1" onClick={()=>handleDeleteItem(pd._id)}>
                           Delete
                         </button>
                       </div>
