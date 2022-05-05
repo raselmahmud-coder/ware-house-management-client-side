@@ -7,7 +7,8 @@ import auth from "../../../firebase_init";
 import { signOut } from "firebase/auth";
 const Header = () => {
   const [user] = useAuthState(auth);
-  const handleLogOut = () => {
+  const handleLogOut = (e) => {
+    e.preventDefault()
     if (user) {
       signOut(auth);
     }
@@ -70,13 +71,13 @@ const Header = () => {
               </>
             )}
             <Nav.Item>
-              <NavLink to="/getStart" className="nav-link" eventkey="getStart">
-                {user ? (
-                  <span onClick={handleLogOut}> Log Out </span>
-                ) : (
-                  "Get Start"
-                )}
-              </NavLink>
+                {user ?
+                  
+                  <NavLink className="nav-link" to="/log-out" onClick={handleLogOut} eventkey="logOut"> Log Out </NavLink>
+                  : 
+                <NavLink className="nav-link" to="/getStart" eventkey="getStart">
+                  Get Start </NavLink>
+                }
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
