@@ -1,14 +1,18 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import auth from "../../../firebase_init";
 
 const AddInventoryItem = () => {
   const [file, setFile] = useState("");
-  console.log(file);
+  const [user] = useAuthState(auth);
   const handleChange = (e) => {
     setFile(URL.createObjectURL(e.target.files[0]));
   };
   const handleAddItem = (e) => {
     e.preventDefault();
+    const email = user?.email;
     const name = e.target.productName.value;
     const supplier_name = e.target.supplierName.value;
     const price = e.target.price.value;
@@ -16,6 +20,7 @@ const AddInventoryItem = () => {
     const image = e.target.url.value;
     const description = e.target.description.value;
     const addItem = {
+      email,
       name,
       supplier_name,
       price,
@@ -24,8 +29,16 @@ const AddInventoryItem = () => {
       description,
     };
     axios
-      .post(`https://king-furniture.herokuapp.com/add-item`, {addItem})
-      .then((res) => console.log(res));
+      .post(`https://king-furniture.herokuapp.com/add-item`, { addItem })
+        .then((res) => {
+            if (res.status === 200) {
+                console.log(res.status)
+                toast.success("Item is added", {
+                    id:'item-added'
+                })
+            }
+        });
+         
     e.target.reset();
   };
   return (
