@@ -8,14 +8,14 @@ const ProductDetails = () => {
   const [singleProduct, setSingleProduct] = useState({});
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/inventory/${id}`)
+      .get(`https://king-furniture.herokuapp.com/inventory/${id}`)
       .then((res) => setSingleProduct(res.data));
   }, [id, singleProduct]);
 
   const handleDelivered = () => {
     const updateQuantity = singleProduct?.quantity - 1;
     // send update data to the server
-    fetch(`http://localhost:4000/inventory/${id}`, {
+    fetch(`https://king-furniture.herokuapp.com/inventory/${id}`, {
       method: "put",
       headers: {
         "content-type": "application/json",
@@ -32,7 +32,7 @@ const ProductDetails = () => {
     if (number > 0) {
       const updateQuantity = singleProduct?.quantity + parseInt(number);
       // send update data to the server
-      fetch(`http://localhost:4000/inventory/${id}`, {
+      fetch(`https://king-furniture.herokuapp.com/inventory/${id}`, {
         method: "put",
         headers: {
           "content-type": "application/json",

@@ -24,7 +24,7 @@ const AddInventoryItem = () => {
       description,
     };
     axios
-      .post(`http://localhost:4000/add-item`, {addItem})
+      .post(`https://king-furniture.herokuapp.com/add-item`, {addItem})
       .then((res) => console.log(res));
     e.target.reset();
   };

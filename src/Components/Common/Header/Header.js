@@ -51,11 +51,23 @@ const Header = () => {
               </NavLink>
             </Nav.Item>
             {user && (
-              <Nav.Item>
-                <NavLink className="nav-link" to="/order" eventkey="order">
-                  My Order
-                </NavLink>
-              </Nav.Item>
+              <>
+                <Nav.Item>
+                  <NavLink className="nav-link" to="/order" eventkey="order">
+                    My Item
+                  </NavLink>
+                </Nav.Item>
+                <Nav.Item>
+                  <NavLink className="nav-link" to="/manage-item" eventkey="manageItem">
+                    Manage Item
+                  </NavLink>
+                </Nav.Item>
+                <Nav.Item>
+                  <NavLink className="nav-link" to="/add-inventory-item" eventkey="item">
+                    Add Item
+                  </NavLink>
+                </Nav.Item>
+              </>
             )}
             <Nav.Item>
               <NavLink to="/getStart" className="nav-link" eventkey="getStart">

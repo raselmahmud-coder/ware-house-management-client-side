@@ -16,6 +16,7 @@ import ProductDetails from "./Components/Pages/Home/ProductDetails/ProductDetail
 import AuthRequired from "./Components/Common/AuthRequired/AuthRequired";
 import ManageInventory from "./Components/Pages/ManageInventory/ManageInventory";
 import AddInventoryItem from "./Components/Pages/AddInventoryItem/AddInventoryItem";
+import ManageItems from "./Components/Pages/ManageItems/ManageItems";
 
 function App() {
   return (
@@ -29,6 +30,15 @@ function App() {
         <Route path="/order" element={<MyOrder />}></Route>
         <Route path="/getStart" element={<LogIn />}></Route>
         <Route path="/registration" element={<Registration />}></Route>
+        <Route
+          path="/manage-item"
+          element={
+            <AuthRequired>
+              <ManageItems />
+            </AuthRequired>
+          }
+        ></Route>
+
         <Route
           path="/productDetails/:id"
           element={
