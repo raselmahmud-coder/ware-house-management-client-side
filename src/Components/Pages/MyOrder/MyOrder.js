@@ -19,7 +19,7 @@ const MyOrder = () => {
       const email = user?.email;
       try {
         await axios
-          .get(`http://localhost:4000/order?email=${email}`)
+          .get(`https://king-furniture.herokuapp.com/order?email=${email}`)
           .then((res) => setItems(res.data));
       } catch (error) {
         console.log(`got error ${error}`);
@@ -40,25 +40,24 @@ const MyOrder = () => {
       id: "user",
     });
   }
-    const handleConfirm = (id) => {
-        handleClose()
-         try {
-            axios
-            .delete(`https://king-furniture.herokuapp.com/manageInventory/${id}`)
-                .then((res) => {
-                    if (res.status ===200) {
-                      toast.success("Deleted this Item", {
-                          id:"delete-item"
-                      })
-                  }
-              });
-         } catch (error) {
-             toast.error(`error happen ${error}`)
-         }
-}
+  const handleConfirm = (id) => {
+    handleClose();
+    try {
+      axios
+        .delete(`https://king-furniture.herokuapp.com/manageInventory/${id}`)
+        .then((res) => {
+          if (res.status === 200) {
+            toast.success("Deleted this Item", {
+              id: "delete-item",
+            });
+          }
+        });
+    } catch (error) {
+      toast.error(`error happen ${error}`);
+    }
+  };
   const handleDeleteItem = () => {
     handleShow();
-
   };
 
   return (
@@ -70,19 +69,22 @@ const MyOrder = () => {
             {items.map((pd) => {
               return (
                 <div className="col mb-5" key={pd._id}>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Are you want to delete?</Modal.Title>
-        </Modal.Header>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={()=>handleConfirm(pd._id)}>
-            Confirm
-          </Button>
-        </Modal.Footer>
-      </Modal>
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Are you want to delete?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Cancel
+                      </Button>
+                      <Button
+                        variant="primary"
+                        onClick={() => handleConfirm(pd._id)}
+                      >
+                        Confirm
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
                   <div className="card h-100">
                     <img className="card-img-top" src={pd?.image} alt="..." />
                     <div className="card-body p-4">

@@ -9,7 +9,7 @@ import SocialLogIn from "./SocialLogIn";
 const Registration = () => {
   const [login, setLogin] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
   const handleRegistration = (e) => {
     e.preventDefault();
     const email = e.target.email.value;

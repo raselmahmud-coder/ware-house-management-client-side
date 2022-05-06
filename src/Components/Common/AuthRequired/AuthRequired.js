@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Spinner from "../Spinner/Spinner";
 import toast from "react-hot-toast";
 import auth from "../../../firebase_init";
+import EmailVerification from "../EmailVerification/EmailVerification";
 
 const AuthRequired = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -20,6 +21,9 @@ const AuthRequired = ({ children }) => {
   }
   if (!user) {
     return <Navigate to="/getStart" state={{ from: location }} replace />;
+  }
+  if (user?.emailVerified === false) {
+  return <EmailVerification/>
   }
 
   return children;

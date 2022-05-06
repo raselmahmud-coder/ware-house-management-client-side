@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase_init";
 import Spinner from "../../Common/Spinner/Spinner";
 import Registration from "./Registration";
@@ -14,6 +14,8 @@ const LogIn = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
+
+
   useEffect(() => {
     if (user) {
       navigate(from, { replace: true });
@@ -84,6 +86,7 @@ const LogIn = () => {
                     id="email"
                     className="form-control"
                     placeholder="Email or username"
+                    required
                   />
                 </div>
                 <div className="form-outline mb-4">
@@ -92,6 +95,7 @@ const LogIn = () => {
                     id="password"
                     className="form-control"
                     placeholder="Password"
+                    required
                   />
                 </div>
                 <div className="row mb-4">
@@ -110,7 +114,9 @@ const LogIn = () => {
                   </div>
 
                   <div className="col-md-6 d-flex justify-content-center">
-                    <a href="#!">Forgot password?</a>
+                    <Link className="btn" to="/forget-password">
+                      Forgot password?
+                    </Link>
                   </div>
                 </div>
                 <button

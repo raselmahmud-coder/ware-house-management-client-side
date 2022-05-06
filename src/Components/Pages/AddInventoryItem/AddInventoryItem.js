@@ -48,6 +48,15 @@ const AddInventoryItem = () => {
         <div className="form-outline mb-4">
           <input
             type="text"
+            id="email"
+            className="form-control"
+            value={user?.email}
+            disabled
+          />
+        </div>
+        <div className="form-outline mb-4">
+          <input
+            type="text"
             id="productName"
             className="form-control"
             placeholder="Product Name"

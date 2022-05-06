@@ -17,6 +17,7 @@ import AuthRequired from "./Components/Common/AuthRequired/AuthRequired";
 import ManageInventory from "./Components/Pages/ManageInventory/ManageInventory";
 import AddInventoryItem from "./Components/Pages/AddInventoryItem/AddInventoryItem";
 import ManageItems from "./Components/Pages/ManageItems/ManageItems";
+import ForgetPassword from "./Components/Pages/GetStart/ForgetPassword/ForgetPassword";
 
 function App() {
   return (
@@ -27,9 +28,17 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/inventory" element={<Inventory />}></Route>
-        <Route path="/order" element={<MyOrder />}></Route>
         <Route path="/getStart" element={<LogIn />}></Route>
         <Route path="/registration" element={<Registration />}></Route>
+        <Route path="/forget-password" element={<ForgetPassword />}></Route>
+        <Route
+          path="/order"
+          element={
+            <AuthRequired>
+              <MyOrder />
+            </AuthRequired>
+          }
+        ></Route>
         <Route
           path="/manage-item"
           element={
