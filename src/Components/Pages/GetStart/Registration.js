@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import auth from "../../../firebase_init";
+import auth from "../../../firebase.init";
 import Spinner from "../../Common/Spinner/Spinner";
 import LogIn from "./LogIn";
 import SocialLogIn from "./SocialLogIn";

@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Spinner from "../Spinner/Spinner";
 import toast from "react-hot-toast";
-import auth from "../../../firebase_init";
+import auth from "../../../firebase.init";
 import EmailVerification from "../EmailVerification/EmailVerification";
 
 const AuthRequired = ({ children }) => {

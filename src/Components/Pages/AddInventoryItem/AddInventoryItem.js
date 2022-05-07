@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import auth from "../../../firebase_init";
+import auth from "../../../firebase.init";
 
 const AddInventoryItem = () => {
   const [file, setFile] = useState("");

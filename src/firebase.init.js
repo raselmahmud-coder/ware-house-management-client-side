@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBNGXFSms2YlWHiNCUn4J5OdUbW1dZr4Yk",
-  authDomain: "king-furniture.firebaseapp.com",
-  projectId: "king-furniture",
-  storageBucket: "king-furniture.appspot.com",
-  messagingSenderId: "223772865610",
-  appId: "1:223772865610:web:6225d8b0870b76bf7362b3"
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
+  authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
+  projectId:`${process.env.REACT_APP_projectId}`,
+  storageBucket:`${process.env.REACT_APP_storageBucket}`,
+  messagingSenderId:`${process.env.REACT_APP_messagingSenderId}`,
+  appId:`${process.env.REACT_APP_appId}`,
 };
 
 // Initialize Firebase

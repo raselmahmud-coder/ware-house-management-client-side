@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import auth from "../../../firebase_init";
+import auth from "../../../firebase.init";
 import Spinner from "../../Common/Spinner/Spinner";
 import Registration from "./Registration";
 import SocialLogIn from "./SocialLogIn";

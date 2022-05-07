@@ -3,7 +3,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../../firebase_init";
+import auth from "../../../firebase.init";
 import { signOut } from "firebase/auth";
 const Header = () => {
   const [user] = useAuthState(auth);

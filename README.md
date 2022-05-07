@@ -1,71 +1,34 @@
-# Getting Started with Create React App
+# Getting Started with King Furniture
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This website live link is [Here](https://king-furniture.web.app/).
 
-## Available Scripts
+This is Stack OverFlow link [Click Here](https://stackoverflow.com/questions/72152593/how-to-pass-onclick-function-in-sibling-components-using-functional-components/72152679#72152679)
 
-In the project directory, you can run:
+This is client side code link [Click Here](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-raselmahmud22)
 
-### `npm start`
+This is server side code link [Click Here](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-raselmahmud22)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Short Description:
 
-### `npm test`
+This is website purpose of all furniture products show. user can registration using email and any social profile 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Available Functionality
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* user can navigate using Menu(it's  never reload) 
+* Blog/News Functionality for product update
+* Photo Gallery have each products
+* Inventory form have for inventory adding
+* User Authentication for new user
+* User can see their own inventory/orders after login
+* Call to action and clear description about this project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Available Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# warehouse-management-client-side-raselmahmud22
+* Responsive home page and other page for mobile and desktop
+* Page Quality Accessible HTML tag added
+* Axios, Font awesome icons, react-router-dom uses
+* react-hot-toast, Spinner, firebase uses
+* Forget password, User can update profile, Email verification is required uses
+* Uses JWT, Axios private 

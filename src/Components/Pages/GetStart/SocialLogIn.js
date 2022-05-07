@@ -1,7 +1,7 @@
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import auth from "../../../firebase_init";
+import auth from "../../../firebase.init";
 import Spinner from "../../Common/Spinner/Spinner";
 const SocialLogIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =

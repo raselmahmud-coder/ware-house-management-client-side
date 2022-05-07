@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import auth from "../../../../firebase_init";
+import auth from "../../../../firebase.init";
 import Spinner from "../../../Common/Spinner/Spinner";
 
 const ForgetPassword = () => {
