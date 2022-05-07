@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
@@ -21,11 +22,15 @@ const LogIn = () => {
       navigate(from, { replace: true });
     }
   }, [from, navigate, user]);
-  const handleLogIn = (e) => {
+  const handleLogIn = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    console.log(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(`http://localhost:4000/login`, { email });
+    localStorage.setItem("accessToken", data);
+    console.log("data", data);
     e.target.reset();
   };
   if (error) {

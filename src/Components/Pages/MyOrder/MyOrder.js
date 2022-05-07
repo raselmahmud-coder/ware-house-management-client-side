@@ -1,8 +1,11 @@
 import axios from "axios";
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import axiosPrivate from "../../../API/AxiosPrivate";
 import auth from "../../../firebase.init";
 import Spinner from "../../Common/Spinner/Spinner";
 
@@ -13,20 +16,25 @@ const MyOrder = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const getItems = async () => {
       const email = user?.email;
       try {
-        await axios
-          .get(`https://king-furniture.herokuapp.com/order?email=${email}`)
+        await axiosPrivate
+          .get(`http://localhost:4000/order?email=${email}`)
           .then((res) => setItems(res.data));
       } catch (error) {
-        console.log(`got error ${error}`);
+        if (error.response.status === 403 || error.response.status === 401) {
+          toast.error(`${error.message}`);
+          console.log(error);
+          // signOut(auth);
+          // navigate("/getStart");
+        }
       }
     };
     getItems();
-  }, [user?.email, items]);
+  }, [user?.email, items, navigate]);
 
   if (loading) {
     return (
@@ -40,6 +48,7 @@ const MyOrder = () => {
       id: "user",
     });
   }
+  // order delete confirmation
   const handleConfirm = (id) => {
     handleClose();
     try {

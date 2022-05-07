@@ -23,7 +23,13 @@ const ProductDetails = () => {
       body: JSON.stringify({ updateQuantity }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.acknowledged === true) {
+          toast.success("You have delivered 1 item", {
+            id: "delivered",
+          });
+        }
+      });
   };
 
   const handleStock = (e) => {
@@ -40,7 +46,12 @@ const ProductDetails = () => {
         body: JSON.stringify({ updateQuantity }),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          if (data.acknowledged === true) {
+            toast.success(`You have restock ${number} items`);
+            e.target.reset();
+          }
+        });
     } else {
       toast.error("put a valid integer number", {
         id: "putValid",
