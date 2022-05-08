@@ -47,8 +47,13 @@ const Header = () => {
               </NavLink>
             </Nav.Item>
             <Nav.Item>
-              <NavLink eventkey="shop" className="nav-link" to={"/blog"}>
+              <NavLink eventkey="blog" className="nav-link" to={"/blog"}>
                 Blog
+              </NavLink>
+            </Nav.Item>
+            <Nav.Item>
+              <NavLink eventkey="about" className="nav-link" to={"/about-us"}>
+                Our Story
               </NavLink>
             </Nav.Item>
             {user && (

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Spinner from "../../../Common/Spinner/Spinner";
 
 const ProductDetails = () => {
@@ -164,6 +164,11 @@ const ProductDetails = () => {
             </button>
           </form>
         </div>
+      </div>
+      <div className="d-flex justify-content-center">
+        <Link className="btn btn-primary" to={"/manage-inventories"}>
+          Manage Inventories
+        </Link>
       </div>
     </>
   );

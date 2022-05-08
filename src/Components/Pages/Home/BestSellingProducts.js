@@ -21,7 +21,11 @@ const BestSellingProducts = () => {
               return (
                 <div className="col mb-5" key={pd._id}>
                   <div className="card h-100">
-                    <img className="card-img-top" src={pd?.image} alt="..." />
+                    {pd?.image ? (
+                      <img className="card-img-top" src={pd?.image} alt="..." />
+                    ) : (
+                      <Spinner />
+                    )}
                     <div className="card-body p-4">
                       <div className="text-center">
                         <h5 className="fw-bolder">{pd?.name}</h5>

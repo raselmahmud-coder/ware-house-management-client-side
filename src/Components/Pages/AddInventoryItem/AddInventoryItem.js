@@ -1,15 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import auth from "../../../firebase.init";
 
 const AddInventoryItem = () => {
-  const [file, setFile] = useState("");
   const [user] = useAuthState(auth);
-  const handleChange = (e) => {
-    setFile(URL.createObjectURL(e.target.files[0]));
-  };
+
   const handleAddItem = (e) => {
     e.preventDefault();
     const email = user?.email;
@@ -94,17 +91,7 @@ const AddInventoryItem = () => {
             placeholder="give an image url"
             className="form-control"
           />
-          <p className="mt-2">Or</p>
-          <label htmlFor="file" className="d-block mb-2">
-            Image
-          </label>
-          <input
-            type="file"
-            className="form-control-file"
-            id="file"
-            onChange={handleChange}
-          />
-          <img src={file} alt="file img" width="200" />
+         
         </div>
         <div className="form-outline mb-4">
           <textarea

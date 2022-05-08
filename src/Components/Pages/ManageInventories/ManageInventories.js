@@ -1,15 +1,34 @@
 import axios from "axios";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import useInventories from "../../../Hooks/useInventories";
 import Spinner from "../../Common/Spinner/Spinner";
 
 const ManageInventory = () => {
   const [inventories] = useInventories();
-  const handleDeleteItem = (id) => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const navigate = useNavigate();
+  const handleDeleteItem = () => {
+    handleShow();
+  };
+  const handleAddItem = () => {
+    navigate("/add-inventory-item");
+  };
+  const handleConfirmation = (id) => {
+    handleClose();
     axios
       .delete(`https://king-furniture.herokuapp.com/manageInventory/${id}`)
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.data.acknowledged === true) {
+          toast.success(`you were delete ${id}`, {
+            id: "deleting",
+          });
+        }
+      });
   };
   return (
     <>
@@ -43,15 +62,28 @@ const ManageInventory = () => {
                     </div>
                     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                       <div className="text-center">
-                        <Link className="btn btn-outline-dark me-1" to={'/add-inventory-item'}>
-                          Add Item
-                        </Link>
                         <button
                           className="btn btn-outline-danger ms-1"
-                          onClick={() => handleDeleteItem(pd._id)}
+                          onClick={handleDeleteItem}
                         >
                           Delete
                         </button>
+                        <Modal show={show} onHide={handleClose}>
+                          <Modal.Header closeButton>
+                            <Modal.Title>Are you want to delete?</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                              Cancel
+                            </Button>
+                            <Button
+                              variant="primary"
+                              onClick={() => handleConfirmation(pd._id)}
+                            >
+                              Confirm
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
                       </div>
                     </div>
                   </div>
@@ -59,6 +91,12 @@ const ManageInventory = () => {
               );
             })}
           </div>
+        </div>
+
+        <div className="d-flex justify-content-center">
+          <button onClick={handleAddItem} className="btn btn-primary">
+            Add Item
+          </button>
         </div>
       </section>
     </>
