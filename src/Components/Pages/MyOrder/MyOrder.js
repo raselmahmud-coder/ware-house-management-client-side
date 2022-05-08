@@ -22,7 +22,7 @@ const MyOrder = () => {
       const email = user?.email;
       try {
         await axiosPrivate
-          .get(`http://localhost:4000/order?email=${email}`)
+          .get(`https://king-furniture.herokuapp.com/order?email=${email}`)
           .then((res) => setItems(res.data));
       } catch (error) {
         if (error.response.status === 403 || error.response.status === 401) {

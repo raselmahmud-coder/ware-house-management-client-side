@@ -16,7 +16,7 @@ const BestSellingProducts = () => {
               <Spinner></Spinner>
             </div>
           )}
-          <div className="row row-cols-2 row-cols-md-3 row-cols-xl-3">
+          <div className="row row-cols-1 row-cols-md-3 row-cols-xl-3">
             {bestProducts.slice(0, 3).map((pd) => {
               return (
                 <div className="col mb-5" key={pd._id}>

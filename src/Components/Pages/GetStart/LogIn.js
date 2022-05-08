@@ -28,7 +28,7 @@ const LogIn = () => {
     const password = e.target.password.value;
     console.log(email, password);
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post(`http://localhost:4000/login`, { email });
+    const { data } = await axios.post(`https://king-furniture.herokuapp.com/login`, { email });
     localStorage.setItem("accessToken", data);
     console.log("data", data);
     e.target.reset();
