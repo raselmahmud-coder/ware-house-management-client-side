@@ -11,3 +11,11 @@
   width: 10px;
   height: 10px;
 }
+.custom-img {
+  margin-bottom: 10rem;
+}
+@media screen and (max-width: 450px) {
+  .custom-img {
+    margin-bottom: 17rem !important;
+  }
+}

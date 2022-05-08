@@ -17,7 +17,7 @@ const BestSellingProducts = () => {
             </div>
           )}
           <div className="row row-cols-1 row-cols-md-3 row-cols-xl-3">
-            {bestProducts.slice(0, 3).map((pd) => {
+            {bestProducts.slice(0, 6).map((pd) => {
               return (
                 <div className="col mb-5" key={pd._id}>
                   <div className="card h-100">
@@ -53,7 +53,7 @@ const BestSellingProducts = () => {
           </div>
         </div>
         <div className="d-flex justify-content-center">
-          <Link className="btn btn-primary" to={"/manageInventory"}>
+          <Link className="btn btn-primary" to={"/manage-inventories"}>
             Manage Inventories
           </Link>
         </div>

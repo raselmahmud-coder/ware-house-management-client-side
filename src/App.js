@@ -5,7 +5,6 @@ import Footer from "./Components/Common/Footer/Footer";
 import Header from "./Components/Common/Header/Header";
 import Home from "./Components/Pages/Home/Home";
 import Blog from "./Components/Pages/Blog/Blog";
-import Inventory from "./Components/Pages/Inventory/Inventory";
 import MyOrder from "./Components/Pages/MyOrder/MyOrder";
 import NotFound from "./Components/Common/NotFound/NotFound";
 import Registration from "./Components/Pages/GetStart/Registration";
@@ -14,10 +13,11 @@ import LogIn from "./Components/Pages/GetStart/LogIn";
 import { Toaster } from "react-hot-toast";
 import ProductDetails from "./Components/Pages/Home/ProductDetails/ProductDetails";
 import AuthRequired from "./Components/Common/AuthRequired/AuthRequired";
-import ManageInventory from "./Components/Pages/ManageInventory/ManageInventory";
+import ManageInventory from "./Components/Pages/ManageInventories/ManageInventories";
 import AddInventoryItem from "./Components/Pages/AddInventoryItem/AddInventoryItem";
 import ManageItems from "./Components/Pages/ManageItems/ManageItems";
 import ForgetPassword from "./Components/Pages/GetStart/ForgetPassword/ForgetPassword";
+import AboutUs from "./Components/Pages/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -27,10 +27,18 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
-        <Route path="/inventory" element={<Inventory />}></Route>
+        <Route path="/about-us" element={<AboutUs />}></Route>
         <Route path="/getStart" element={<LogIn />}></Route>
         <Route path="/registration" element={<Registration />}></Route>
         <Route path="/forget-password" element={<ForgetPassword />}></Route>
+        <Route
+          path="/manage-inventories"
+          element={
+            <AuthRequired>
+              <ManageInventory />
+            </AuthRequired>
+          }
+        ></Route>
         <Route
           path="/order"
           element={
@@ -53,14 +61,6 @@ function App() {
           element={
             <AuthRequired>
               <ProductDetails />
-            </AuthRequired>
-          }
-        ></Route>
-        <Route
-          path="/manageInventory"
-          element={
-            <AuthRequired>
-              <ManageInventory />
             </AuthRequired>
           }
         ></Route>

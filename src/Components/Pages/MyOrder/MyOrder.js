@@ -28,8 +28,8 @@ const MyOrder = () => {
         if (error.response.status === 403 || error.response.status === 401) {
           toast.error(`${error.message}`);
           console.log(error);
-          // signOut(auth);
-          // navigate("/getStart");
+          signOut(auth);
+          navigate("/getStart");
         }
       }
     };

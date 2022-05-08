@@ -8,7 +8,7 @@ import { signOut } from "firebase/auth";
 const Header = () => {
   const [user] = useAuthState(auth);
   const handleLogOut = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (user) {
       signOut(auth);
     }
@@ -19,8 +19,8 @@ const Header = () => {
         expand="lg"
         style={{
           backgroundColor: "#AA55FF",
-          paddingTop: "0px",
-          paddingBottom: "0px",
+          paddingTop: "2px",
+          paddingBottom: "2px",
         }}
       >
         <Navbar.Brand href="/">
@@ -40,10 +40,10 @@ const Header = () => {
             <Nav.Item>
               <NavLink
                 className="nav-link"
-                to="/inventory"
                 eventkey="inventory"
+                to="/manage-inventories"
               >
-                Inventory
+                Manage Inventories
               </NavLink>
             </Nav.Item>
             <Nav.Item>
@@ -54,30 +54,50 @@ const Header = () => {
             {user && (
               <>
                 <Nav.Item>
-                  <NavLink className="nav-link" to="/order" eventkey="order">
-                    My Item
-                  </NavLink>
-                </Nav.Item>
-                <Nav.Item>
-                  <NavLink className="nav-link" to="/manage-item" eventkey="manageItem">
+                  <NavLink
+                    className="nav-link"
+                    to="/manage-item"
+                    eventkey="manageItem"
+                  >
                     Manage Item
                   </NavLink>
                 </Nav.Item>
                 <Nav.Item>
-                  <NavLink className="nav-link" to="/add-inventory-item" eventkey="item">
+                  <NavLink
+                    className="nav-link"
+                    to="/add-inventory-item"
+                    eventkey="item"
+                  >
                     Add Item
+                  </NavLink>
+                </Nav.Item>
+
+                <Nav.Item>
+                  <NavLink className="nav-link" to="/order" eventkey="order">
+                    My Item
                   </NavLink>
                 </Nav.Item>
               </>
             )}
             <Nav.Item>
-                {user ?
-                  
-                  <NavLink className="nav-link" to="/log-out" onClick={handleLogOut} eventkey="logOut"> Log Out </NavLink>
-                  : 
-                <NavLink className="nav-link" to="/getStart" eventkey="getStart">
-                  Get Start </NavLink>
-                }
+              {user ? (
+                <NavLink
+                  className="nav-link"
+                  to="/log-out"
+                  onClick={handleLogOut}
+                  eventkey="logOut"
+                >
+                  Log Out
+                </NavLink>
+              ) : (
+                <NavLink
+                  className="nav-link"
+                  to="/getStart"
+                  eventkey="getStart"
+                >
+                  Get Start
+                </NavLink>
+              )}
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

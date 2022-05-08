@@ -14,7 +14,7 @@ const CustomersReview = () => {
     <>
       <h1 className="text-center my-2">Our Lucky Customers</h1>
       <p className="text-center text-gray">
-        Visit our shop to see amazing creations from our designers
+        Visit our shop to see amazing creations from our design
       </p>
       <section className="gradient-custom">
         <Carousel>
@@ -22,21 +22,21 @@ const CustomersReview = () => {
             <div className="d-flex justify-content-center py-5">
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
-                className="rounded-circle shadow-1"
+                className="rounded-circle shadow-1 custom-img"
                 alt="avatar"
                 width="150"
                 height="150"
-                style={{ marginBottom: "10rem" }}
               />
               <Carousel.Caption className="mt-5">
                 <h4 className="">Maria Developer</h4>
                 <p className="">
                   <i className="fas fa-quote-left pe-2"></i>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                  aliquam amet animi blanditiis consequatur debitis dicta
-                  distinctio, enim error eum iste libero modi nam natus
-                  perferendis possimus quasi sint sit tempora voluptatem. Est,
-                  exercitationem id ipsa ipsum laboriosam perferendis.
+                  <span>
+                    we are thrilled you chose to purchase the from us. We are
+                    working hard to build even higher-quality products for our
+                    customers. We would love to hear your thoughts and opinion.
+                    Please go to share with us your feedback
+                  </span>
                   <i className="fas fa-quote-right ps-2"></i>
                 </p>
                 <ul className="list-unstyled d-flex justify-content-center mb-0">
@@ -63,7 +63,7 @@ const CustomersReview = () => {
             <div className="d-flex justify-content-center py-5">
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
-                className="rounded-circle shadow-1"
+                className="rounded-circle shadow-1 custom-img"
                 alt="avatar"
                 width="150"
                 height="150"
@@ -73,11 +73,12 @@ const CustomersReview = () => {
                 <h4 className="">Micheal - Web Developer</h4>
                 <p className="">
                   <i className="fas fa-quote-left pe-2"></i>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                  aliquam amet animi blanditiis consequatur debitis dicta
-                  distinctio, enim error eum iste libero modi nam natus
-                  perferendis possimus quasi sint sit tempora voluptatem. Est,
-                  exercitationem id ipsa ipsum laboriosam perferendis.
+                  <span>
+                    we are thrilled you chose to purchase the from us. We are
+                    working hard to build even higher-quality products for our
+                    customers. We would love to hear your thoughts and opinion.
+                    Please go to share with us your feedback
+                  </span>
                   <i className="fas fa-quote-right ps-2"></i>
                 </p>
                 <ul className="list-unstyled d-flex justify-content-center mb-0">
@@ -104,7 +105,7 @@ const CustomersReview = () => {
             <div className="d-flex justify-content-center py-5">
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
-                className="rounded-circle shadow-1"
+                className="rounded-circle shadow-1 custom-img"
                 alt="avatar"
                 width="150"
                 height="150"
@@ -114,11 +115,12 @@ const CustomersReview = () => {
                 <h4 className="">Maria Smantha - Web Developer</h4>
                 <p className="">
                   <i className="fas fa-quote-left pe-2"></i>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                  aliquam amet animi blanditiis consequatur debitis dicta
-                  distinctio, enim error eum iste libero modi nam natus
-                  perferendis possimus quasi sint sit tempora voluptatem. Est,
-                  exercitationem id ipsa ipsum laboriosam perferendis.
+                  <span>
+                    we are thrilled you chose to purchase the from us. We are
+                    working hard to build even higher-quality products for our
+                    customers. We would love to hear your thoughts and opinion.
+                    Please go to share with us your feedback
+                  </span>
                   <i className="fas fa-quote-right ps-2"></i>
                 </p>
                 <ul className="list-unstyled d-flex justify-content-center mb-0">
@@ -163,13 +165,13 @@ const CustomersReview = () => {
           </div>
         </div>
         <div className="col-md-4">
-        <div className="d-flex align-items-center justify-content-evenly">
+          <div className="d-flex align-items-center justify-content-evenly">
             <FontAwesomeIcon icon={faBuildingLock} className="fs-1" />
             <div>
-          <h5>100% Secure Payments</h5>
-          <p>The highest level of security</p>
-        </div>
-        </div>
+              <h5>100% Secure Payments</h5>
+              <p>The highest level of security</p>
+            </div>
+          </div>
         </div>
       </section>
     </>

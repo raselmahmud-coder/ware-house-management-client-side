@@ -2,10 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import Spinner from "../../../Common/Spinner/Spinner";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState({});
+  const [spinner, setSpinner] = useState(false);
   useEffect(() => {
     axios
       .get(`https://king-furniture.herokuapp.com/inventory/${id}`)
@@ -36,6 +38,7 @@ const ProductDetails = () => {
     e.preventDefault();
     const number = e.target.number.value;
     if (number > 0) {
+      setSpinner(true);
       const updateQuantity = singleProduct?.quantity + parseInt(number);
       // send update data to the server
       fetch(`https://king-furniture.herokuapp.com/inventory/${id}`, {
@@ -49,6 +52,7 @@ const ProductDetails = () => {
         .then((data) => {
           if (data.acknowledged === true) {
             toast.success(`You have restock ${number} items`);
+            setSpinner(false);
             e.target.reset();
           }
         });
@@ -70,11 +74,15 @@ const ProductDetails = () => {
                   <div className="row align-items-center">
                     <div className="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                       <div className="bg-image hover-zoom ripple rounded ripple-surface">
-                        <img
-                          src={singleProduct?.image}
-                          className="w-100"
-                          alt="logo"
-                        />
+                        {singleProduct.image ? (
+                          <img
+                            src={singleProduct?.image}
+                            className="w-100"
+                            alt="logo"
+                          />
+                        ) : (
+                          <Spinner />
+                        )}
                         <a href="#!">
                           <div className="hover-overlay">
                             <div
@@ -152,7 +160,7 @@ const ProductDetails = () => {
             </div>
 
             <button type="submit" className="btn btn-primary btn-block mb-4">
-              Send
+              {spinner ? <Spinner /> : "Send"}
             </button>
           </form>
         </div>

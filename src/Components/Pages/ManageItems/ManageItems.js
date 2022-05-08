@@ -1,14 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import useInventories from '../../../Hooks/useInventories';
-import Spinner from '../../Common/Spinner/Spinner';
+import React from "react";
+import { Link } from "react-router-dom";
+import useInventories from "../../../Hooks/useInventories";
+import Spinner from "../../Common/Spinner/Spinner";
 
 const ManageItems = () => {
-    const [bestProducts] = useInventories();
-    return (
-        <>
-             <section className="py-5">
-        <h1 className="text-center">Best Selling Products</h1>
+  const [bestProducts] = useInventories();
+  return (
+    <>
+      <section className="py-5">
+        <h1 className="text-center">Manage Products</h1>
         <div className="px-4 px-lg-5 mt-5">
           {bestProducts.length === 0 && (
             <div className="d-flex justify-content-center">
@@ -51,10 +51,9 @@ const ManageItems = () => {
             })}
           </div>
         </div>
-
       </section>
-        </>
-    );
+    </>
+  );
 };
 
 export default ManageItems;
