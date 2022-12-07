@@ -21,7 +21,7 @@ const ManageInventory = () => {
   const handleConfirmation = (id) => {
     handleClose();
     axios
-      .delete(`https://king-furniture.herokuapp.com/manageInventory/${id}`)
+      .delete(`https://warehouse-server-raselmahmud22.koyeb.app/manageInventory/${id}`)
       .then((res) => {
         if (res.data.acknowledged === true) {
           toast.success(`you were delete ${id}`, {

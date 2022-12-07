@@ -22,7 +22,7 @@ const MyOrder = () => {
       const email = user?.email;
       try {
         await axiosPrivate
-          .get(`https://king-furniture.herokuapp.com/order?email=${email}`)
+          .get(`https://warehouse-server-raselmahmud22.koyeb.app/order?email=${email}`)
           .then((res) => setItems(res.data));
       } catch (error) {
         if (error.response.status === 403 || error.response.status === 401) {
@@ -53,7 +53,7 @@ const MyOrder = () => {
     handleClose();
     try {
       axios
-        .delete(`https://king-furniture.herokuapp.com/manageInventory/${id}`)
+        .delete(`https://warehouse-server-raselmahmud22.koyeb.app/manageInventory/${id}`)
         .then((res) => {
           if (res.status === 200) {
             toast.success("Deleted this Item", {

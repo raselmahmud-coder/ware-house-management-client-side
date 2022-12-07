@@ -26,7 +26,7 @@ const AddInventoryItem = () => {
       description,
     };
     axios
-      .post(`https://king-furniture.herokuapp.com/add-item`, { addItem })
+      .post(`https://warehouse-server-raselmahmud22.koyeb.app/add-item`, { addItem })
         .then((res) => {
             if (res.status === 200) {
                 console.log(res.status)

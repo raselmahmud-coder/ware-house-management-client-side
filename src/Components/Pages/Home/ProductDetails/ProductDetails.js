@@ -10,14 +10,14 @@ const ProductDetails = () => {
   const [spinner, setSpinner] = useState(false);
   useEffect(() => {
     axios
-      .get(`https://king-furniture.herokuapp.com/inventory/${id}`)
+      .get(`https://warehouse-server-raselmahmud22.koyeb.app/inventory/${id}`)
       .then((res) => setSingleProduct(res.data));
   }, [id, singleProduct]);
 
   const handleDelivered = () => {
     const updateQuantity = singleProduct?.quantity - 1;
     // send update data to the server
-    fetch(`https://king-furniture.herokuapp.com/inventory/${id}`, {
+    fetch(`https://warehouse-server-raselmahmud22.koyeb.app/inventory/${id}`, {
       method: "put",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ const ProductDetails = () => {
       setSpinner(true);
       const updateQuantity = singleProduct?.quantity + parseInt(number);
       // send update data to the server
-      fetch(`https://king-furniture.herokuapp.com/inventory/${id}`, {
+      fetch(`https://warehouse-server-raselmahmud22.koyeb.app/inventory/${id}`, {
         method: "put",
         headers: {
           "content-type": "application/json",
